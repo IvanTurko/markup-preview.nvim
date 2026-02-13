@@ -40,10 +40,10 @@ No prereqs. No `npm install`. Just install and go.
 
 Open any Markdown file, then:
 
-- **Start preview:** `<leader>mps` or `:MarkdownPreview`
+- **Start preview:** `:MarkdownPreview`
 - **Edit freely** — the browser updates instantly as you type
-- **Force refresh:** `<leader>mpr`
-- **Stop:** `<leader>mpS`
+- **Force refresh:** `:MarkdownPreviewRefresh`
+- **Stop:** `:MarkdownPreviewStop`
 
 > The first start opens your browser. Subsequent updates reuse the same tab.
 
@@ -53,15 +53,21 @@ For **other non-markdown files**, place your cursor inside a fenced ```` ```merm
 
 ---
 
-## Keymaps & Commands
+## Commands
 
-| Action  | Keymap        | Command                  |
-|---------|---------------|--------------------------|
-| Start   | `<leader>mps` | `:MarkdownPreview`       |
-| Refresh | `<leader>mpr` | `:MarkdownPreviewRefresh`|
-| Stop    | `<leader>mpS` | `:MarkdownPreviewStop`   |
+| Command                  | Description          |
+|--------------------------|----------------------|
+| `:MarkdownPreview`       | Start preview        |
+| `:MarkdownPreviewRefresh`| Force refresh        |
+| `:MarkdownPreviewStop`   | Stop preview         |
 
-> Keymaps use the `<leader>mp` group. Remap freely in your config.
+No keymaps are set by default — map them however you like. Suggested:
+
+```lua
+vim.keymap.set("n", "<leader>mps", "<cmd>MarkdownPreview<cr>", { desc = "Markdown: Start preview" })
+vim.keymap.set("n", "<leader>mpS", "<cmd>MarkdownPreviewStop<cr>", { desc = "Markdown: Stop preview" })
+vim.keymap.set("n", "<leader>mpr", "<cmd>MarkdownPreviewRefresh<cr>", { desc = "Markdown: Refresh preview" })
+```
 
 ---
 

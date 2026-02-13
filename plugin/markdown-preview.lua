@@ -17,12 +17,3 @@ vim.api.nvim_create_user_command("MarkdownPreviewStop", function()
 	require("markdown_preview").stop()
 end, {})
 
--- Keymaps under <leader>mp group:
--- mps = Start, mpS = Stop, mpr = Refresh
-local map = function(lhs, rhs, desc)
-	vim.keymap.set("n", lhs, rhs, { desc = desc, silent = true })
-end
-
-map("<leader>mps", "<cmd>MarkdownPreview<cr>", "Markdown: Start preview")
-map("<leader>mpS", "<cmd>MarkdownPreviewStop<cr>", "Markdown: Stop preview")
-map("<leader>mpr", "<cmd>MarkdownPreviewRefresh<cr>", "Markdown: Refresh preview")
